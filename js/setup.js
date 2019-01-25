@@ -1,5 +1,5 @@
 
-var setup = document.querySelector('.setup').classList.remove('hidden')
+
 var setupSimilarList = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
@@ -45,19 +45,34 @@ for(i = 0; i < gamers.length; i++) {
 
 setupSimilarList.appendChild(fragment)
 
-
-
-	
-
-	
-
-
-
-
-
-
-
 document.querySelector('.setup-similar').classList.remove('hidden');
 
 
+var open = document.querySelector('.setup-open');
+var setup = document.querySelector('.setup');
+var close = setup.querySelector('.setup-close');
+var setupOpenKey = document.querySelector('.setup-open-icon');
+var userName = setup.querySelector('.setup-user-name');
+
+open.addEventListener('click', function(){
+	setup.classList.remove('hidden');
+	userName.focus();
+})
+
+setupOpenKey.addEventListener('keydown', function(evt){
+	if (evt.keyCode === 13) {
+	setup.classList.remove('hidden');		
+	}
+})
+
+close.addEventListener('click', function(){
+	setup.classList.add('hidden');
+})
+
+document.addEventListener('keydown', function(evt){
+	if (true) {}
+	if (evt.keyCode === 27) {
+	setup.classList.add('hidden');	
+	}
+})
 
